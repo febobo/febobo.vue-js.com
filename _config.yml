@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: 掌播
 subtitle:
 description:
 author: John Doe
@@ -54,7 +54,9 @@ tag_map:
 ## http://momentjs.com/docs/#/displaying/format/
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
-
+# theme color
+# Default | Mint Green | Cobalt Blue | Hot Pink | Dark Violet
+theme_color: Mint Green
 # Pagination
 ## Set per_page to 0 to disable pagination
 per_page: 10

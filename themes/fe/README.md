@@ -2,8 +2,17 @@
 
 A simple theme for Hexo blog framework
 
+<<<<<<< HEAD
 ![even](http://ww4.sinaimg.cn/large/006tNbRwjw1f6l0ryrho2j31kw0yb7a6.jpg)
 
+=======
+Desktop Browser:
+![even](http://ww4.sinaimg.cn/large/006tNbRwjw1f6l0ryrho2j31kw0yb7a6.jpg)
+
+Colorful & Mobile:
+![colorful and mobile](http://ww1.sinaimg.cn/large/72f96cbagw1f7e0aftmitj21dz0hhn2f.jpg)
+
+>>>>>>> c562d208a1f6f2816484d0e3d070ac89c8b917f6
 ## Demo
 Check out Even theme in live : [demo](http://www.ahonn.me)
 
@@ -16,7 +25,11 @@ Check out Even theme in live : [demo](http://www.ahonn.me)
 $ hexo init blog
 $ cd blog
 $ npm install
+<<<<<<< HEAD
 $ npm install --save hexo-renderer-jade hexo-generator-feed hexo-generator-sitemap hexo-browsersync hexo-generator-archive
+=======
+$ npm install --save hexo-renderer-jade hexo-renderer-scss hexo-generator-feed hexo-generator-sitemap hexo-browsersync
+>>>>>>> c562d208a1f6f2816484d0e3d070ac89c8b917f6
 $ cd themes/
 $ git clone https://github.com/ahonn/hexo-theme-even even
 $ cd even/
