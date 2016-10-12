@@ -2,6 +2,8 @@
 title: JS设计模式-中介者模式
 date: 2016-10-11T16:23:38.000Z
 tags: null
+description: >-
+  中介者模式的作用就是解除对象与对象之间的紧耦合关系，增加一个中介者对象后，所有的相关对象都通过中介者对象来进行通信，而不是相互引用，所以当一个对象发生改变时，只需要通知中介者对象即可，中介者使各对象耦合松散，而且可以独立的改变它们之的交互，中介者模式使多对多关系变成了相对简单的一对多关系
 ---
 
 # 中介者模式
@@ -63,7 +65,7 @@ tags: null
 
   虽然目前顺利完成了编码，但随之来的需求改变可能给我们带来麻烦，现在这个验证的节点还不算多，如果增加到10个或者更多，它们的关系可能变的错综复杂，现在我们来引入中介者对象，所有的节点验证都只跟中介者通信，这样一来，无论是修改还是新增验证节点，我们都只需要改变中介者对象里的代码<br>
 
-  ```<br>
+  ```js
   var mediator = (function(){ var nameInput = document.getElementById('nameInput'),
 
   passwordInput = document.getElementById('nameInput'), repeatPasswordInput = document.getElementById('nameInput'), sexInput = document.getElementById('nameInput'), ageInput = document.getElementById('ageInput');
