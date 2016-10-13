@@ -71,5 +71,6 @@ theme: fe
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type:git
-  repo:git@febobo:/data/www/zhangbonews/zhangbonews.git
+  repo:febobo@zhangbonews.com:/data/www/zhangbonews/zhangbonews.git
+  # repo:git@febobo:/data/www/zhangbonews/zhangbonews.git
   branch : master
