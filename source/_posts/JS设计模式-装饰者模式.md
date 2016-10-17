@@ -2,6 +2,8 @@
 title: JS设计模式-装饰者模式
 date: 2016-10-11T16:25:57.000Z
 tags: 设计模式
+type: categories
+categories: JS设计模式
 description: 在传统的面向对象语言中，给对象添加功能常常使用继承的方式，但是继承的方式并不灵活，下面我们列举两条
 ---
 
