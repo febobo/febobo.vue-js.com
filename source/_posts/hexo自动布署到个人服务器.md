@@ -1,5 +1,5 @@
 ---
-title: hexo自动布署到个人服务器
+title: hexo自动布署到个人服务器test
 date: 2016-10-13 17:35:01
 tags: 布署,git hook
 categories: 布署,git hook
