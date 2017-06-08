@@ -1,11 +1,15 @@
 ---
 title: redux源码解析-createStore
 date: 2017-06-07 15:54:20
-tags:
+tags: redux源码解析-createStore
+description: redux源码解析-createStore
 ---
 
 
 ```
+
+// 源码摘自[https://github.com/reactjs/redux/blob/master/src/createStore.js](https://github.com/reactjs/redux/blob/master/src/createStore.js)
+
 import isPlainObject from 'lodash/isPlainObject'
 import $$observable from 'symbol-observable'
 
@@ -45,25 +49,31 @@ export const ActionTypes = {
  * and subscribe to changes.
  */
 export default function createStore(reducer, preloadedState, enhancer) {
+
+  // 如果初始化的state 是一个函数并且 enhancer 没有值，将函数传给 enhancer 并将初始的state 置为undefined
   if (typeof preloadedState === 'function' && typeof enhancer === 'undefined') {
     enhancer = preloadedState
     preloadedState = undefined
   }
 
+  // 如果 enhancer
   if (typeof enhancer !== 'undefined') {
+    // 但是不是一个函数将抛出异常提示enhancer只能传入function
     if (typeof enhancer !== 'function') {
       throw new Error('Expected the enhancer to be a function.')
     }
 
+    // enhancer 是一个可以组合 store creator 的高阶函数，直接返回一个新的强化过的 store creator
     return enhancer(createStore)(reducer, preloadedState)
   }
 
+  // 如果传入的reducer 不是function 将抛出异常，只能传入function
   if (typeof reducer !== 'function') {
     throw new Error('Expected the reducer to be a function.')
   }
 
-  let currentReducer = reducer
-  let currentState = preloadedState
+  let currentReducer = reducer // 传入的actions
+  let currentState = preloadedState // 初始的state
   let currentListeners = []
   let nextListeners = currentListeners
   let isDispatching = false
@@ -79,6 +89,8 @@ export default function createStore(reducer, preloadedState, enhancer) {
    *
    * @returns {any} The current state tree of your application.
    */
+
+  // 返回当前状态树
   function getState() {
     return currentState
   }
@@ -112,6 +124,8 @@ export default function createStore(reducer, preloadedState, enhancer) {
     }
 
     let isSubscribed = true
+
+    //  在每次 dispatch() 调用之前都会保存一份快照。当你在正在调用监听器（listener）的时候订阅(subscribe)或者去掉订阅（unsubscribe），对当前的 dispatch() 不会有任何影响。但是对于下一次的 dispatch()，无论嵌套与否，都会使用订阅列表里最近的一次快照
 
     ensureCanMutateNextListeners()
     nextListeners.push(listener)
@@ -175,11 +189,14 @@ export default function createStore(reducer, preloadedState, enhancer) {
 
     try {
       isDispatching = true
+
+      // 通过action 来 改变currentState
       currentState = currentReducer(currentState, action)
     } finally {
       isDispatching = false
     }
 
+    // 每次dispatch 都会触发subscribe 过的listeners
     const listeners = currentListeners = nextListeners
     for (let i = 0; i < listeners.length; i++) {
       const listener = listeners[i]
